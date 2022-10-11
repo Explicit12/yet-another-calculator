@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+  import ScoreBoard from "./ScoreBoard.vue";
+</script>
 
 <template>
   <form action="#" class="calculator">
-    <div class="scoreboard"></div>
+    <ScoreBoard />
     <div class="numpad"></div>
   </form>
 </template>
@@ -15,25 +17,12 @@
     border: var(--body-border);
     border-radius: 12px;
     box-shadow: var(--body-shadow);
-  }
-  .calculator .scoreboard {
-    height: 190px;
-    border-radius: 11px 11px 0;
-    background-color: var(--scoreboard-background);
 
-    .expression {
-      color: var(--expression);
+    .numpad {
+      margin-top: -14px;
+      height: 392px;
+      background-color: var(--numpad-background);
+      border-radius: 11px;
     }
-
-    .result {
-      color: var(--result);
-    }
-  }
-
-  .calculator .numpad {
-    margin-top: -14px;
-    height: 392px;
-    background-color: var(--numpad-background);
-    border-radius: 11px;
   }
 </style>
