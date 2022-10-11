@@ -49,31 +49,29 @@
   --history-item-line: var(--grey);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --main-background: var(--grey);
-    --body-border: var(--border-white);
-    --body-shadow: none;
+:root[data-theme="dark"] {
+  --main-background: var(--grey);
+  --body-border: var(--border-white);
+  --body-shadow: none;
 
-    --scoreboard-background: var(--grey);
-    --expression: var(--light-grey);
-    --result: var(--white);
+  --scoreboard-background: var(--grey);
+  --expression: var(--light-grey);
+  --result: var(--white);
 
-    --numpad-background: var(--black);
+  --numpad-background: var(--black);
 
-    --green-numpad-button-background: var(--green);
-    --green-numpad-button-color: var(--white);
+  --green-numpad-button-background: var(--green);
+  --green-numpad-button-color: var(--white);
+
+  --black-numpad-button-backgound: var(--black);
+  --black-numpad-button-color: var(--white);
+  --black-numpad-button-border: var(--border-white);
+
+  --white-numpad-button-background: var(--grey);
+  --white-numpad-button-color: var(--white);
   
-    --black-numpad-button-backgound: var(--black);
-    --black-numpad-button-color: var(--white);
-    --black-numpad-button-border: var(--border-white);
-  
-    --white-numpad-button-background: var(--grey);
-    --white-numpad-button-color: var(--white);
-    
-    --button-shadow: none;
+  --button-shadow: none;
 
-    --history-heading-line: var(--white);
-    --history-item-line: var(--grey);
-  }
+  --history-heading-line: var(--white);
+  --history-item-line: var(--grey);
 }
