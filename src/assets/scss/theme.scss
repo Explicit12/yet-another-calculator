@@ -1,0 +1,79 @@
+:root {
+  --black: #2e2e2e;
+  --grey: #4d4d4d;
+  --light-grey: #ababab;
+  --white: #ffffff;
+  --green: #1dee84;
+
+  --border-black: 1px solid var(--black);
+  --border-white: 1px solid var(--white);
+
+  --shadow-big: 0px 100px 80px rgba(46, 46, 46, 0.07),
+    0px 64.8148px 46.8519px rgba(46, 46, 46, 0.0531481),
+    0px 38.5185px 25.4815px rgba(46, 46, 46, 0.0425185),
+    0px 20px 13px rgba(46, 46, 46, 0.035),
+    0px 8.14815px 6.51852px rgba(46, 46, 46, 0.0274815),
+    0px 1.85185px 3.14815px rgba(46, 46, 46, 0.0168519);
+
+  --shadow-small: 0px 27px 199px rgba(46, 46, 46, 0.2),
+    0px 13.6687px 86.7516px rgba(46, 46, 46, 0.135),
+    0px 5.4px 32.3375px rgba(46, 46, 46, 0.1),
+    0px 1.18125px 11.5047px rgba(46, 46, 46, 0.065);
+}
+
+/* semantic color variables for this project */
+:root {
+  --main-background: var(--white);
+  --body-border: var(--border-black);
+  --body-shadow: var(--shadow-big);
+
+  --scoreboard-background: var(--black);
+  --expression: var(--light-grey);
+  --result: var(--white);
+
+  --numpad-background: var(--white);
+
+  --green-numpad-button-background: var(--green);
+  --green-numpad-button-color: var(--white);
+
+  --black-numpad-button-backgound: var(--black);
+  --black-numpad-button-color: var(--white);
+  --black-numpad-button-border: none;
+
+  --white-numpad-button-background: var(--white);
+  --white-numpad-button-color: var(--black);
+  
+  --button-shadow: var(--shadow-small);
+
+  --history-heading-line: var(--black);
+  --history-item-line: var(--grey);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-background: var(--grey);
+    --body-border: var(--border-white);
+    --body-shadow: none;
+
+    --scoreboard-background: var(--grey);
+    --expression: var(--light-grey);
+    --result: var(--white);
+
+    --numpad-background: var(--black);
+
+    --green-numpad-button-background: var(--green);
+    --green-numpad-button-color: var(--white);
+  
+    --black-numpad-button-backgound: var(--black);
+    --black-numpad-button-color: var(--white);
+    --black-numpad-button-border: var(--border-white);
+  
+    --white-numpad-button-background: var(--grey);
+    --white-numpad-button-color: var(--white);
+    
+    --button-shadow: none;
+
+    --history-heading-line: var(--white);
+    --history-item-line: var(--grey);
+  }
+}
