@@ -9,9 +9,11 @@
 </template>
 
 <style scoped lang="scss">
-  .container {
-    max-width: 802px;
-    padding: 1rem;
-    margin: 0 auto;
+  @media screen and (min-width: 720px) {
+    .container {
+      max-width: 802px;
+      padding: 1rem;
+      margin: 0 auto;
+    }
   }
 </style>

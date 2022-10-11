@@ -45,7 +45,8 @@
 
       padding: 1.5rem;
       padding-bottom: calc(1rem + 14px);
-      max-width: 272px;
+      box-sizing: border-box;
+      width: 100%;
 
       appearance: none;
       &::-webkit-outer-spin-button,

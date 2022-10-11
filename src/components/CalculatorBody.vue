@@ -11,7 +11,7 @@
 
 <style scoped lang="scss">
   .calculator {
-    width: 320px;
+    // width: 320px;
     height: 568px;
 
     border: var(--body-border);
@@ -23,6 +23,12 @@
       height: 392px;
       background-color: var(--numpad-background);
       border-radius: 11px;
+    }
+  }
+
+  @media screen and (min-width: 720px) {
+    .calculator {
+      max-width: 320px;
     }
   }
 </style>
