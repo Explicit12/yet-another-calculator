@@ -1,19 +1,17 @@
 <script setup>
   import ScoreBoard from "./ScoreBoard.vue";
+  import NumPad from "./NumPad.vue";
 </script>
 
 <template>
   <form action="#" class="calculator">
     <ScoreBoard />
-    <div class="numpad"></div>
+    <NumPad />
   </form>
 </template>
 
 <style scoped lang="scss">
   .calculator {
-    // width: 320px;
-    height: 568px;
-
     border: var(--body-border);
     border-radius: 12px;
     box-shadow: var(--body-shadow);

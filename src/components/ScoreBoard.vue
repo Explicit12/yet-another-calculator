@@ -71,8 +71,8 @@
       content: "";
       background: linear-gradient(
         90deg,
-        #2e2e2e 6.25%,
-        rgba(46, 46, 46, 0) 100%
+        var(--scoreboard-background) 6.25%,
+        transparent 100%
       );
       position: absolute;
       height: 3.6rem;
