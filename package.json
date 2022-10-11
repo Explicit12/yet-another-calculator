@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@lipemat/css-mqpacker": "^9.0.0",
@@ -21,8 +22,14 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "prettier": "^2.7.1",
     "sass": "^1.55.0",
     "vite": "^3.0.9"
+  },
+  "lint-staged": {
+    "*.{vue,js,jsx,cjs,mjs}": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
