@@ -1,7 +1,71 @@
-<script setup></script>
+<script setup>
+  import NumPadButton from "./NumPadButton.vue";
+
+  const numberButtons = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+  ];
+</script>
 
 <template>
-  <div class="numpad"></div>
+  <div class="numpad">
+    <NumPadButton
+      v-for="(button, index) in numberButtons"
+      :key="index"
+      :button-text="index.toString()"
+      :button-grid-area="button"
+      class="white-button"
+    />
+    <NumPadButton
+      button-text="C"
+      button-grid-area="clear"
+      class="black-button"
+    />
+    <NumPadButton
+      button-text="/"
+      button-grid-area="divide"
+      class="black-button"
+    />
+    <NumPadButton
+      button-text="X"
+      button-grid-area="multiple"
+      class="black-button"
+    />
+    <NumPadButton
+      button-text="<"
+      button-grid-area="backspace"
+      class="black-button"
+    />
+    <NumPadButton
+      button-text="-"
+      button-grid-area="minus"
+      class="black-button"
+    />
+    <NumPadButton
+      button-text="+"
+      button-grid-area="plus"
+      class="black-button"
+    />
+    <NumPadButton
+      button-text="="
+      button-grid-area="equal"
+      class="green-button"
+    />
+    <NumPadButton
+      button-text="%"
+      button-grid-area="percent"
+      class="white-button"
+    />
+    <NumPadButton button-text="." button-grid-area="dot" class="white-button" />
+  </div>
 </template>
 
 <style scoped lang="scss">
