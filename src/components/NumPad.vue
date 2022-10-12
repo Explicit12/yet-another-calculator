@@ -1,70 +1,115 @@
 <script setup>
   import NumPadButton from "./NumPadButton.vue";
 
-  const numberButtons = [
-    "zero",
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "eight",
-    "nine",
+  const buttons = [
+    {
+      buttonText: "1",
+      buttonGridArea: "one",
+      class: "white-button",
+    },
+    {
+      buttonText: "2",
+      buttonGridArea: "two",
+      class: "white-button",
+    },
+    {
+      buttonText: "3",
+      buttonGridArea: "three",
+      class: "white-button",
+    },
+    {
+      buttonText: "4",
+      buttonGridArea: "four",
+      class: "white-button",
+    },
+    {
+      buttonText: "5",
+      buttonGridArea: "five",
+      class: "white-button",
+    },
+    {
+      buttonText: "6",
+      buttonGridArea: "six",
+      class: "white-button",
+    },
+    {
+      buttonText: "7",
+      buttonGridArea: "seven",
+      class: "white-button",
+    },
+    {
+      buttonText: "8",
+      buttonGridArea: "eight",
+      class: "white-button",
+    },
+    {
+      buttonText: "9",
+      buttonGridArea: "nine",
+      class: "white-button",
+    },
+    {
+      buttonText: "0",
+      buttonGridArea: "zero",
+      class: "white-button",
+    },
+    {
+      buttonText: "C",
+      buttonGridArea: "clear",
+      class: "black-button",
+    },
+    {
+      buttonText: "/",
+      buttonGridArea: "divide",
+      class: "black-button",
+    },
+    {
+      buttonText: "X",
+      buttonGridArea: "multiple",
+      class: "black-button",
+    },
+    {
+      buttonText: "<",
+      buttonGridArea: "backspace",
+      class: "black-button",
+    },
+    {
+      buttonText: "-",
+      buttonGridArea: "minus",
+      class: "black-button",
+    },
+    {
+      buttonText: "+",
+      buttonGridArea: "plus",
+      class: "black-button",
+    },
+    {
+      buttonText: "%",
+      buttonGridArea: "percent",
+      class: "white-button",
+    },
+    {
+      buttonText: ".",
+      buttonGridArea: "dot",
+      class: "white-button",
+    },
+    {
+      buttonText: "=",
+      buttonGridArea: "equal",
+      class: "green-button",
+    },
   ];
 </script>
 
 <template>
   <div class="numpad">
     <NumPadButton
-      v-for="(button, index) in numberButtons"
+      v-for="(button, index) in buttons"
       :key="index"
-      :button-text="index.toString()"
-      :button-grid-area="button"
-      class="white-button"
+      :button-text="button.buttonText"
+      :button-grid-area="button.buttonGridArea"
+      :class="button.class"
+      v-ripple="button.class === 'white-button' ? '#6983B3' : '#fff'"
     />
-    <NumPadButton
-      button-text="C"
-      button-grid-area="clear"
-      class="black-button"
-    />
-    <NumPadButton
-      button-text="/"
-      button-grid-area="divide"
-      class="black-button"
-    />
-    <NumPadButton
-      button-text="X"
-      button-grid-area="multiple"
-      class="black-button"
-    />
-    <NumPadButton
-      button-text="<"
-      button-grid-area="backspace"
-      class="black-button"
-    />
-    <NumPadButton
-      button-text="-"
-      button-grid-area="minus"
-      class="black-button"
-    />
-    <NumPadButton
-      button-text="+"
-      button-grid-area="plus"
-      class="black-button"
-    />
-    <NumPadButton
-      button-text="="
-      button-grid-area="equal"
-      class="green-button"
-    />
-    <NumPadButton
-      button-text="%"
-      button-grid-area="percent"
-      class="white-button"
-    />
-    <NumPadButton button-text="." button-grid-area="dot" class="white-button" />
   </div>
 </template>
 

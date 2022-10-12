@@ -27,9 +27,10 @@
     border: none;
     border-radius: 0.5rem;
     box-shadow: var(--button-shadow);
+    height: 100%;
+    width: 100%;
 
-    position: relative;
-    @include rubik(2rem);
+    @include rubik(2rem, 500);
     text-align: center;
 
     &.white-button {

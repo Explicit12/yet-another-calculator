@@ -36,7 +36,7 @@
     }
 
     .expression-input {
-      @include rubik(3rem);
+      @include rubik(3rem, 500);
       text-align: right;
 
       color: var(--result);
