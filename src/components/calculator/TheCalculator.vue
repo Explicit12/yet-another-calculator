@@ -6,7 +6,7 @@
 
   const scoreBoardInput = ref("");
   const prevExpression = ref("");
-  const error = ref(false);
+  const error = ref(true);
 
   const formatedScoreBoardInput = computed(() => {
     return scoreBoardInput.value.slice().replaceAll(" ", "");
@@ -14,14 +14,15 @@
 
   watch(formatedScoreBoardInput, (newValue) => {
     const invalidRegexp = new RegExp(
-      /[a-z]|^$|=|\$|@|!|&|'|"|`|\+\+|--|\/\/|\*\*|~/gi,
+      /[a-z]|^$|=|\$|@|!|&|'|"|`|\+\+|--|\/\/|\*\*|\.\.|~/gi,
     );
     if (newValue.match(invalidRegexp)) error.value = true;
     else error.value = false;
   });
 
   function setPrevExpression() {
-    if (!error.value) prevExpression.value = formatedScoreBoardInput.value;
+    if (error.value) return;
+    prevExpression.value = formatedScoreBoardInput.value;
   }
 
   function clearInput() {
@@ -32,6 +33,7 @@
   }
 
   function showResult() {
+    if (error.value) return;
     scoreBoardInput.value = String(evaluate(formatedScoreBoardInput.value));
   }
 </script>
