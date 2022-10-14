@@ -15,6 +15,13 @@
     prevExpression.value = formatedScoreBoardInput.value;
   }
 
+  function clearInput() {
+    scoreBoardInput.value = scoreBoardInput.value.substring(
+      0,
+      scoreBoardInput.value.length - 1,
+    );
+  }
+
   function showResult() {
     try {
       const invalidRegexp = new RegExp(/[a-z]|=|\$|@|!|&|'|"|`|\+\+|--|~/gi);
@@ -47,6 +54,9 @@
         setPrevExpression();
         showResult();
       "
+      @clear-click="scoreBoardInput = ''"
+      @backspace-click="clearInput"
+      @numpad-click="(value) => (scoreBoardInput += value)"
     />
   </form>
 </template>

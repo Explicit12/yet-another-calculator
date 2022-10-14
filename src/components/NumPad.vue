@@ -1,7 +1,7 @@
 <script setup>
   import NumPadButton from "./NumPadButton.vue";
 
-  defineEmits(["equalClick"]);
+  defineEmits(["equalClick", "backspaceClick", "clearClick", "numpadClick"]);
 
   const buttons = [
     {
@@ -55,23 +55,14 @@
       class: "white-button",
     },
     {
-      buttonText: "C",
-      buttonGridArea: "clear",
-      class: "black-button",
-    },
-    {
       buttonText: "/",
       buttonGridArea: "divide",
       class: "black-button",
     },
     {
       buttonText: "X",
+      value: "*",
       buttonGridArea: "multiple",
-      class: "black-button",
-    },
-    {
-      buttonText: "<",
-      buttonGridArea: "backspace",
       class: "black-button",
     },
     {
@@ -106,12 +97,25 @@
       :button-grid-area="button.buttonGridArea"
       :class="button.class"
       v-ripple="button.class === 'white-button' ? '#6983B3' : '#fff'"
+      @click.prevent="$emit('numpadClick', button?.value || button.buttonText)"
     />
     <NumPadButton
       @click.prevent="$emit('equalClick')"
       button-text="="
       button-grid-area="equal"
       class="green-button"
+    />
+    <NumPadButton
+      @click.prevent="$emit('clearClick')"
+      button-text="C"
+      button-grid-area="clear"
+      class="black-button"
+    />
+    <NumPadButton
+      @click.prevent="$emit('backspaceClick')"
+      button-text="<"
+      button-grid-area="backspace"
+      class="black-button"
     />
   </div>
 </template>
