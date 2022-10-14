@@ -1,6 +1,6 @@
 <script setup>
   defineEmits(["update:modelValue", "resultRequest"]);
-  defineProps(["modelValue", "prevExpression"]);
+  defineProps(["modelValue", "prevExpression", "error"]);
 </script>
 
 <template>
@@ -21,10 +21,12 @@
         @input="$emit('update:modelValue', $event.target.value)"
         @keydown.prevent.enter="$emit('resultRequest')"
         class="expression-input"
+        :class="{ error: error }"
         type="text"
         name="expression-input"
         id="expression-input"
         autocomplete="off"
+        spellcheck="false"
       />
     </span>
   </div>
@@ -49,6 +51,7 @@
 
     .expression-input {
       @include rubik(3rem, 500);
+      caret-color: var(--white);
       text-align: right;
 
       color: var(--result);
@@ -91,6 +94,11 @@
       width: 4rem;
       left: 1.4rem;
       bottom: 1.5rem;
+    }
+
+    .error {
+      text-decoration: underline;
+      text-decoration-color: #f18f01;
     }
   }
 

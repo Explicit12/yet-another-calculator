@@ -2,13 +2,20 @@
   import ScoreBoard from "./ScoreBoard.vue";
   import NumPad from "./NumPad.vue";
   import evaluate from "../../utils/evaluate";
-  import { ref, computed } from "vue";
+  import { ref, computed, watch } from "vue";
 
   const scoreBoardInput = ref("");
   const prevExpression = ref("");
+  const error = ref(false);
 
   const formatedScoreBoardInput = computed(() => {
     return scoreBoardInput.value.slice().replaceAll(" ", "");
+  });
+
+  watch(formatedScoreBoardInput, (newValue) => {
+    const invalidRegexp = new RegExp(/[a-z]|^$|=|\$|@|!|&|'|"|`|\+\+|--|~/gi);
+    if (newValue.match(invalidRegexp)) error.value = true;
+    else error.value = false;
   });
 
   function setPrevExpression() {
@@ -23,21 +30,7 @@
   }
 
   function showResult() {
-    try {
-      const invalidRegexp = new RegExp(/[a-z]|=|\$|@|!|&|'|"|`|\+\+|--|~/gi);
-      const invalidTokens = String(formatedScoreBoardInput.value).match(
-        invalidRegexp,
-      );
-      if (invalidTokens) {
-        throw new SyntaxError(`Unexpected tokens ${invalidTokens}`);
-      } else if (formatedScoreBoardInput.value === "") {
-        throw new SyntaxError("Empty string");
-      }
-
-      scoreBoardInput.value = String(evaluate(formatedScoreBoardInput.value));
-    } catch (error) {
-      console.error(error);
-    }
+    scoreBoardInput.value = String(evaluate(formatedScoreBoardInput.value));
   }
 </script>
 
@@ -49,6 +42,7 @@
         showResult();
       "
       v-model="scoreBoardInput"
+      :error="error"
       :prev-expression="prevExpression"
     />
     <NumPad
