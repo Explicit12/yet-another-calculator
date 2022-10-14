@@ -1,10 +1,10 @@
 <script setup>
-  import CalculatorBody from "./components/CalculatorBody.vue";
+  import TheCalculator from "./components/calculator/TheCalculator.vue";
 </script>
 
 <template>
   <div class="container">
-    <CalculatorBody />
+    <TheCalculator />
   </div>
 </template>
 

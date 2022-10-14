@@ -1,7 +1,7 @@
 <script setup>
   import ScoreBoard from "./ScoreBoard.vue";
   import NumPad from "./NumPad.vue";
-  import evaluate from "../utils/evaluate";
+  import evaluate from "../../utils/evaluate";
   import { ref, computed } from "vue";
 
   const scoreBoardInput = ref("");
@@ -30,6 +30,8 @@
       );
       if (invalidTokens) {
         throw new SyntaxError(`Unexpected tokens ${invalidTokens}`);
+      } else if (formatedScoreBoardInput.value === "") {
+        throw new SyntaxError("Empty string");
       }
 
       scoreBoardInput.value = String(evaluate(formatedScoreBoardInput.value));
@@ -64,9 +66,8 @@
 <style scoped lang="scss">
   .calculator {
     border: var(--body-border);
-    border-radius: 12px;
+    border-radius: 0 0 12px 12px;
     box-shadow: var(--body-shadow);
-
     .numpad {
       margin-top: -14px;
       height: 392px;
@@ -77,6 +78,7 @@
 
   @media screen and (min-width: 720px) {
     .calculator {
+      border-radius: 12px;
       max-width: 320px;
     }
   }

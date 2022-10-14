@@ -34,7 +34,6 @@
   @import "@/assets/scss/mixins";
   .scoreboard {
     height: 190px;
-    border-radius: 11px 11px 0;
     background-color: var(--scoreboard-background);
 
     display: flex;
@@ -92,6 +91,12 @@
       width: 4rem;
       left: 1.4rem;
       bottom: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 720px) {
+    .scoreboard {
+      border-radius: 11px 11px 0;
     }
   }
 </style>
