@@ -1,17 +1,30 @@
-<script setup></script>
+<script setup>
+  defineEmits(["update:modelValue", "resultRequest"]);
+  defineProps(["modelValue", "prevExpression"]);
+</script>
 
 <template>
   <div class="scoreboard">
     <span class="previous-expression">
-      Type here
-      <b>&#128071;</b>
+      <template v-if="!prevExpression.length">
+        Type here
+        <b>&#128071;</b>
+      </template>
+
+      <template v-else>
+        {{ prevExpression }}
+      </template>
     </span>
     <span class="input-wrapper">
       <input
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+        @keydown.prevent.enter="$emit('resultRequest')"
         class="expression-input"
-        type="number"
+        type="text"
         name="expression-input"
         id="expression-input"
+        autocomplete="off"
       />
     </span>
   </div>
@@ -75,10 +88,10 @@
         transparent 100%
       );
       position: absolute;
-      height: 3.6rem;
+      height: 6.6rem;
       width: 4rem;
       left: 1.4rem;
-      top: 1.5rem;
+      bottom: 1.5rem;
     }
   }
 </style>

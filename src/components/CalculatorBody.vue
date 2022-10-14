@@ -1,12 +1,53 @@
 <script setup>
   import ScoreBoard from "./ScoreBoard.vue";
   import NumPad from "./NumPad.vue";
+  import evaluate from "../utils/evaluate";
+  import { ref, computed } from "vue";
+
+  const scoreBoardInput = ref("");
+  const prevExpression = ref("");
+
+  const formatedScoreBoardInput = computed(() => {
+    return scoreBoardInput.value.slice().replaceAll(" ", "");
+  });
+
+  function setPrevExpression() {
+    prevExpression.value = formatedScoreBoardInput.value;
+  }
+
+  function showResult() {
+    try {
+      const invalidRegexp = new RegExp(/[a-z]|=|\$|@|!|&|'|"|`|\+\+|--|~/gi);
+      const invalidTokens = String(formatedScoreBoardInput.value).match(
+        invalidRegexp,
+      );
+      if (invalidTokens) {
+        throw new SyntaxError(`Unexpected tokens ${invalidTokens}`);
+      }
+
+      scoreBoardInput.value = String(evaluate(formatedScoreBoardInput.value));
+    } catch (error) {
+      console.error(error);
+    }
+  }
 </script>
 
 <template>
   <form action="#" class="calculator">
-    <ScoreBoard />
-    <NumPad />
+    <ScoreBoard
+      @result-request="
+        setPrevExpression();
+        showResult();
+      "
+      v-model="scoreBoardInput"
+      :prev-expression="prevExpression"
+    />
+    <NumPad
+      @equal-click="
+        setPrevExpression();
+        showResult();
+      "
+    />
   </form>
 </template>
 

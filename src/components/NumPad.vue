@@ -1,6 +1,8 @@
 <script setup>
   import NumPadButton from "./NumPadButton.vue";
 
+  defineEmits(["equalClick"]);
+
   const buttons = [
     {
       buttonText: "1",
@@ -92,11 +94,6 @@
       buttonGridArea: "dot",
       class: "white-button",
     },
-    {
-      buttonText: "=",
-      buttonGridArea: "equal",
-      class: "green-button",
-    },
   ];
 </script>
 
@@ -109,6 +106,12 @@
       :button-grid-area="button.buttonGridArea"
       :class="button.class"
       v-ripple="button.class === 'white-button' ? '#6983B3' : '#fff'"
+    />
+    <NumPadButton
+      @click.prevent="$emit('equalClick')"
+      button-text="="
+      button-grid-area="equal"
+      class="green-button"
     />
   </div>
 </template>
