@@ -4,6 +4,7 @@
   --light-grey: #ababab;
   --white: #ffffff;
   --green: #1dee84;
+  --white-blue: #eceff7;
 
   --border-black: 1px solid var(--black);
   --border-white: 1px solid var(--white);
@@ -29,7 +30,8 @@
   --result: var(--white);
 
   --numpad-background: var(--white);
-
+  --active-color: var(--white-blue);
+  
   --green-numpad-button-background: var(--green);
   --green-numpad-button-color: var(--white);
 
@@ -44,6 +46,7 @@
 
   --history-heading-line: var(--black);
   --history-item-line: var(--grey);
+  --history-result: var(--black);
 }
 
 :root[data-theme="dark"] {
@@ -56,6 +59,7 @@
   --result: var(--white);
 
   --numpad-background: var(--black);
+  --active-color: var(--black);
 
   --green-numpad-button-background: var(--green);
   --green-numpad-button-color: var(--white);
@@ -70,5 +74,6 @@
   --button-shadow: none;
 
   --history-heading-line: var(--white);
-  --history-item-line: var(--grey);
+  --history-item-line: var(--light-grey);
+  --history-result: var(--white);
 }

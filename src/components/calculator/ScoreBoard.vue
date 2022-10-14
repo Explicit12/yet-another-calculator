@@ -37,6 +37,7 @@
   .scoreboard {
     height: 190px;
     background-color: var(--scoreboard-background);
+    border-radius: 11px 11px 0;
 
     display: flex;
     flex-direction: column;
@@ -123,9 +124,9 @@
     }
   }
 
-  @media screen and (min-width: 720px) {
-    .scoreboard {
-      border-radius: 11px 11px 0;
-    }
-  }
+  // @media screen and (min-width: 720px) {
+  //   .scoreboard {
+  //     border-radius: 11px 11px 0;
+  //   }
+  // }
 </style>

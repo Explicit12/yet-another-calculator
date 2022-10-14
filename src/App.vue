@@ -11,16 +11,20 @@
 </template>
 
 <style scoped lang="scss">
+  .container {
+    padding: 0 1rem;
+    padding-top: 5rem;
+  }
   .col-2 {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5rem;
   }
 
   @media screen and (min-width: 720px) {
     .container {
       max-width: 802px;
-      padding: 1rem;
       margin: 0 auto;
     }
 
@@ -28,6 +32,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: flex-start;
       gap: 5rem;
     }
   }

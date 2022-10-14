@@ -5,6 +5,7 @@ export default function evaluate(expression) {
     return Function("return " + expression)();
   }
 
+  // I hate regular expressions :)
   const percents = expression.match(/(\+|-|\*|\/)\d*%/gi);
   const accPercent = expression
     .match(/((\+|-|\*|\/)\d*|\d*)(\+|-|\*|\/)\d.*%/gi)[0]

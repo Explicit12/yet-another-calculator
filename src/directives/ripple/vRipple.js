@@ -1,13 +1,16 @@
 import { debounce } from "lodash-es";
 
 let rippleColor = null;
+let targetElement = null;
 
 function playRipple(event) {
-  const { offsetX, offsetY, target } = event;
+  event.preventDefault();
+  const { offsetX, offsetY } = event;
 
-  // inherit styles from target element to avoid side effects
-  const targetComputedStyles = window.getComputedStyle(target);
+  // inherits styles from target element to avoid side effects
+  const targetComputedStyles = window.getComputedStyle(targetElement);
   const saveStyles = {
+    display: targetComputedStyles.display,
     gridArea: targetComputedStyles.gridArea,
     boxShadow: targetComputedStyles.boxShadow,
     borderRadius: targetComputedStyles.borderRadius,
@@ -17,8 +20,8 @@ function playRipple(event) {
   rippleWrapper.classList.add("ripple-wrapper");
   Object.assign(rippleWrapper.style, saveStyles);
 
-  target.after(rippleWrapper);
-  rippleWrapper.append(target);
+  targetElement.after(rippleWrapper);
+  rippleWrapper.append(targetElement);
 
   const ripple = document.createElement("div");
   ripple.classList.add("ripple");
@@ -26,21 +29,23 @@ function playRipple(event) {
   ripple.style.top = offsetY + "px";
   ripple.style.left = offsetX + "px";
 
-  target.after(ripple);
+  targetElement.after(ripple);
 
   setTimeout(() => {
-    rippleWrapper.after(target);
+    rippleWrapper.after(targetElement);
     rippleWrapper.remove();
   }, 250);
 }
 
 export default {
   mounted: (el, binding) => {
-    el.addEventListener("click", () => (rippleColor = binding.value));
+    el.addEventListener("click", () => {
+      rippleColor = binding.value;
+      targetElement = el;
+    });
     el.addEventListener("click", debounce(playRipple, 250));
   },
-  beforeUnmount: (el, binding) => {
-    el.removeEventListener("click", () => (rippleColor = binding.value));
+  beforeUnmount: (el) => {
     el.removeEventListener("click", playRipple);
   },
 };

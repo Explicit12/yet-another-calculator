@@ -66,6 +66,12 @@
     border: var(--body-border);
     border-radius: 0 0 12px 12px;
     box-shadow: var(--body-shadow);
+    border-radius: 12px;
+
+    position: sticky;
+    top: 5rem;
+    flex-shrink: 0;
+
     .numpad {
       margin-top: -14px;
       height: 392px;
@@ -76,7 +82,6 @@
 
   @media screen and (min-width: 720px) {
     .calculator {
-      border-radius: 12px;
       max-width: 320px;
     }
   }

@@ -101,18 +101,21 @@
     />
     <NumPadButton
       @click.prevent="$emit('equalClick')"
+      v-ripple="'#fff'"
       button-text="="
       button-grid-area="equal"
       class="green-button"
     />
     <NumPadButton
       @click.prevent="$emit('clearClick')"
+      v-ripple="'#fff'"
       button-text="C"
       button-grid-area="clear"
       class="black-button"
     />
     <NumPadButton
       @click.prevent="$emit('backspaceClick')"
+      v-ripple="'#fff'"
       button-text="<"
       button-grid-area="backspace"
       class="black-button"
