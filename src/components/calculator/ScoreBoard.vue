@@ -44,9 +44,30 @@
     justify-content: flex-end;
 
     .previous-expression {
+      position: relative;
       color: var(--expression);
-      padding-right: 1.5rem;
+      margin: 0 1.5rem;
+      width: 100%;
+      max-width: calc(100% - 3rem);
+      overflow: hidden;
       @include rubik(1.5rem, 500);
+
+      display: flex;
+      justify-content: flex-end;
+
+      &::after {
+        content: "";
+        background: linear-gradient(
+          90deg,
+          var(--scoreboard-background) 6.25%,
+          transparent 100%
+        );
+        position: absolute;
+        height: 2rem;
+        width: 4rem;
+        left: -1px;
+        bottom: -1px;
+      }
     }
 
     .expression-input {
@@ -90,7 +111,7 @@
         transparent 100%
       );
       position: absolute;
-      height: 6.6rem;
+      height: 4rem;
       width: 4rem;
       left: 1.4rem;
       bottom: 1.5rem;

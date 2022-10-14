@@ -13,13 +13,15 @@
   });
 
   watch(formatedScoreBoardInput, (newValue) => {
-    const invalidRegexp = new RegExp(/[a-z]|^$|=|\$|@|!|&|'|"|`|\+\+|--|~/gi);
+    const invalidRegexp = new RegExp(
+      /[a-z]|^$|=|\$|@|!|&|'|"|`|\+\+|--|\/\/|\*\*|~/gi,
+    );
     if (newValue.match(invalidRegexp)) error.value = true;
     else error.value = false;
   });
 
   function setPrevExpression() {
-    prevExpression.value = formatedScoreBoardInput.value;
+    if (!error.value) prevExpression.value = formatedScoreBoardInput.value;
   }
 
   function clearInput() {
