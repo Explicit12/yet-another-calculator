@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, watch } from "vue";
+  import { onMounted, ref, watch } from "vue";
 
   const themeToggler = ref(false);
 
@@ -8,7 +8,16 @@
   function toggleTheme() {
     const root = document.querySelector("html");
     root.setAttribute("data-theme", themeToggler.value ? "dark" : "light");
+    window.localStorage.setItem(
+      "calc-theme",
+      JSON.stringify(themeToggler.value),
+    );
   }
+
+  onMounted(() => {
+    themeToggler.value =
+      JSON.parse(window.localStorage.getItem("calc-theme")) || false;
+  });
 </script>
 
 <template>
@@ -46,9 +55,8 @@
   }
 
   .light {
-    color: var(--black);
-    background-color: var(--light-grey);
-    border: 1px transparent solid;
+    color: var(--white);
+    border: 1px var(--white) solid;
   }
 
   .dark {
