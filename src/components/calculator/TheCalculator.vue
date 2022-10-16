@@ -38,8 +38,8 @@
     if (error.value) return;
     scoreBoardInput.value = String(evaluate(formatedScoreBoardInput.value));
     emit("historyUpdate", {
-      expression: prevExpression,
-      solution: scoreBoardInput,
+      expression: prevExpression.value,
+      solution: scoreBoardInput.value,
     });
   }
 </script>
