@@ -36,7 +36,7 @@
   }
 
   .history-list {
-    padding: 0 0 5rem 0;
+    padding: 0;
   }
 
   .history-list-header {

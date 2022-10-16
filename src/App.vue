@@ -1,6 +1,7 @@
 <script setup>
   import TheCalculator from "./components/calculator/TheCalculator.vue";
   import HistoryList from "./components/historyList/HistoryList.vue";
+  import AppFooter from "./components/AppFooter.vue";
   import { ref, onMounted, watch, computed } from "vue";
 
   const history = ref([]);
@@ -22,17 +23,18 @@
 </script>
 
 <template>
-  <div class="container col-2">
+  <section class="container col-2">
     <TheCalculator @history-update="handler" />
     <HistoryList :history-array="history" />
-  </div>
+  </section>
+  <AppFooter />
 </template>
 
 <style scoped lang="scss">
   .container {
-    padding: 0 1rem;
-    padding-top: 5rem;
+    padding: 5rem 1rem 10rem 1rem;
   }
+
   .col-2 {
     display: flex;
     flex-direction: column;
@@ -42,6 +44,8 @@
 
   @media screen and (min-width: 720px) {
     .container {
+      min-height: 100vh;
+      width: 100%;
       max-width: 802px;
       margin: 0 auto;
     }

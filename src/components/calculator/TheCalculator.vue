@@ -78,8 +78,6 @@
     box-shadow: var(--body-shadow);
     border-radius: 12px;
 
-    position: sticky;
-    top: 5rem;
     flex-shrink: 0;
 
     .numpad {
@@ -93,6 +91,8 @@
   @media screen and (min-width: 720px) {
     .calculator {
       max-width: 320px;
+      position: sticky;
+      top: 5rem;
     }
   }
 </style>
