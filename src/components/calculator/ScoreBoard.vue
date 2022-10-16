@@ -5,7 +5,7 @@
 
 <template>
   <div class="scoreboard">
-    <span class="previous-expression">
+    <span class="previous-expression" id="input-label">
       <template v-if="!prevExpression.length">
         Type here
         <b>&#128071;</b>
@@ -27,6 +27,7 @@
         id="expression-input"
         autocomplete="off"
         spellcheck="false"
+        aria-labelledby="input-label"
       />
     </span>
   </div>

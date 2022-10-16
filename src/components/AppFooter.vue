@@ -14,12 +14,12 @@
 
     <ul class="contacts">
       <li>
-        <a href="https://github.com/Explicit12">
+        <a href="https://github.com/Explicit12" aria-label="GitHub">
           <GithubIcon />
         </a>
       </li>
       <li>
-        <a href="mailto: explicit1@tutanota.com">
+        <a href="mailto: explicit1@tutanota.com" aria-label="eMail">
           <MailIcon />
         </a>
       </li>
