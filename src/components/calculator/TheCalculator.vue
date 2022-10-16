@@ -4,6 +4,8 @@
   import evaluate from "../../utils/evaluate";
   import { ref, computed, watch } from "vue";
 
+  defineEmits(["historyUpdate"]);
+
   const scoreBoardInput = ref("");
   const prevExpression = ref("");
   const error = ref(true);
@@ -44,6 +46,10 @@
       @result-request="
         setPrevExpression();
         showResult();
+        $emit('historyUpdate', {
+          expression: prevExpression,
+          solution: scoreBoardInput,
+        });
       "
       v-model="scoreBoardInput"
       :error="error"
@@ -53,6 +59,10 @@
       @equal-click="
         setPrevExpression();
         showResult();
+        $emit('historyUpdate', {
+          expression: prevExpression,
+          solution: scoreBoardInput,
+        });
       "
       @clear-click="scoreBoardInput = ''"
       @backspace-click="clearInput"

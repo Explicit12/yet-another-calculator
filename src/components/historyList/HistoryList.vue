@@ -1,19 +1,29 @@
 <script setup>
-  import HistoryIcon from "../icons/HistoryIcon.vue";
   import HistoryListItem from "./HistoryListItem.vue";
+  import ThemeButton from "./ThemeButton.vue";
+
+  defineProps(["historyArray"]);
 </script>
 
 <template>
   <div class="history-list-wrapper">
     <header class="history-list-header">
       <h2 class="history-headline">History</h2>
-      <button class="back-history-button">
-        <HistoryIcon />
-      </button>
+      <ThemeButton />
     </header>
 
     <ul class="history-list">
-      <HistoryListItem v-for="n in 50" :key="n" />
+      <HistoryListItem
+        v-for="(historyItem, index) in historyArray"
+        :key="index"
+      >
+        <template v-slot:expression>
+          {{ historyItem.expression }}
+        </template>
+        <template v-slot:solution>
+          {{ historyItem.solution }}
+        </template>
+      </HistoryListItem>
     </ul>
   </div>
 </template>
@@ -33,30 +43,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 5px;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--history-heading-line);
 
     .history-headline {
       margin: 0;
       @include rubik(1.5rem, 500);
       color: var(--history-heading-line);
-    }
-
-    .back-history-button {
-      background: none;
-      border: none;
-      line-height: 0;
-      border-radius: 4px;
-      outline: var(--history-heading-line);
-      padding: 0.5rem;
-      border-radius: 4px;
-      transition: 250ms background-color;
-
-      &:hover {
-        cursor: pointer;
-        transition: 250ms background-color;
-        background-color: var(--active-color);
-      }
     }
   }
 </style>

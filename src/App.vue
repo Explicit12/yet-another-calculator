@@ -1,12 +1,30 @@
 <script setup>
   import TheCalculator from "./components/calculator/TheCalculator.vue";
   import HistoryList from "./components/historyList/HistoryList.vue";
+  import { ref, onMounted, watch, computed } from "vue";
+
+  const history = ref([]);
+
+  const historyCopy = computed(() => [...history.value]);
+
+  watch(historyCopy, (newValue) => {
+    localStorage.setItem("calc-history", JSON.stringify(newValue));
+  });
+
+  function handler(newItem) {
+    history.value.unshift(newItem);
+  }
+
+  onMounted(() => {
+    history.value =
+      JSON.parse(window.localStorage.getItem("calc-history")) || [];
+  });
 </script>
 
 <template>
   <div class="container col-2">
-    <TheCalculator />
-    <HistoryList />
+    <TheCalculator @history-update="handler" />
+    <HistoryList :history-array="history" />
   </div>
 </template>
 
