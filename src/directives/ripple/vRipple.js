@@ -8,7 +8,7 @@ export default {
       let offsetX = null;
       let offsetY = null;
 
-      if (event instanceof TouchEvent) {
+      if (window.TouchEvent && event instanceof TouchEvent) {
         offsetX = event.touches[0].clientX;
         offsetY = event.touches[0].clientY;
       } else {
