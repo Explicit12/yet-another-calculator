@@ -96,7 +96,11 @@
       :button-text="button.buttonText"
       :button-grid-area="button.buttonGridArea"
       :class="button.class"
-      v-ripple="button.class === 'white-button' ? '#6983B3' : '#fff'"
+      v-ripple="
+        button.class === 'white-button'
+          ? 'var(--white-numpad-button-ripple)'
+          : 'var(--white)'
+      "
       @click.prevent="$emit('numpadClick', button?.value || button.buttonText)"
     >
       {{ button.buttonText }}
@@ -104,7 +108,7 @@
 
     <NumPadButton
       @click.prevent="$emit('equalClick')"
-      v-ripple="'#fff'"
+      v-ripple="'var(--white)'"
       button-grid-area="equal"
       class="green-button"
     >
@@ -113,7 +117,7 @@
 
     <NumPadButton
       @click.prevent="$emit('clearClick')"
-      v-ripple="'#fff'"
+      v-ripple="'var(--white)'"
       button-grid-area="clear"
       class="black-button"
     >
@@ -122,7 +126,7 @@
 
     <NumPadButton
       @click.prevent="$emit('backspaceClick')"
-      v-ripple="'#fff'"
+      v-ripple="'var(--white)'"
       button-grid-area="backspace"
       class="black-button"
     >

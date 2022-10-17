@@ -4,7 +4,7 @@
   --light-grey: #ababab;
   --white: #ffffff;
   --green: #1dee84;
-  --white-blue: #eceff7;
+  --white-blue: #6983B3;
 
   --border-black: 1px solid var(--black);
   --border-white: 1px solid var(--white);
@@ -41,6 +41,7 @@
 
   --white-numpad-button-background: var(--white);
   --white-numpad-button-color: var(--black);
+  --white-numpad-button-ripple: var(--white-blue);
 
   --button-shadow: var(--shadow-small);
 
@@ -70,6 +71,7 @@
 
   --white-numpad-button-background: var(--grey);
   --white-numpad-button-color: var(--white);
+  --white-numpad-button-ripple: var(--white);
 
   --button-shadow: none;
 
