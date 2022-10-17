@@ -1,9 +1,5 @@
 <script setup>
   defineProps({
-    buttonText: {
-      type: String,
-      required: true,
-    },
     buttonGridArea: {
       type: String,
       default: "none",
@@ -12,12 +8,13 @@
 </script>
 
 <template>
-  <input
+  <button
     class="numpad-button"
     type="button"
-    :value="buttonText"
     :style="{ gridArea: buttonGridArea }"
-  />
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <style scoped lang="scss">

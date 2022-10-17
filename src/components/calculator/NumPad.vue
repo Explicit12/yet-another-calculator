@@ -98,28 +98,36 @@
       :class="button.class"
       v-ripple="button.class === 'white-button' ? '#6983B3' : '#fff'"
       @click.prevent="$emit('numpadClick', button?.value || button.buttonText)"
-    />
+    >
+      {{ button.buttonText }}
+    </NumPadButton>
+
     <NumPadButton
       @click.prevent="$emit('equalClick')"
       v-ripple="'#fff'"
-      button-text="="
       button-grid-area="equal"
       class="green-button"
-    />
+    >
+      {{ "=" }}
+    </NumPadButton>
+
     <NumPadButton
       @click.prevent="$emit('clearClick')"
       v-ripple="'#fff'"
-      button-text="C"
       button-grid-area="clear"
       class="black-button"
-    />
+    >
+      {{ "C" }}
+    </NumPadButton>
+
     <NumPadButton
       @click.prevent="$emit('backspaceClick')"
       v-ripple="'#fff'"
-      button-text="<"
       button-grid-area="backspace"
       class="black-button"
-    />
+    >
+      {{ "<" }}
+    </NumPadButton>
   </div>
 </template>
 
