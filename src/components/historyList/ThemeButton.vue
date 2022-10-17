@@ -33,7 +33,7 @@
   </label>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import "@/assets/scss/mixins";
 
   #theme-button {
