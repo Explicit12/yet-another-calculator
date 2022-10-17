@@ -26,6 +26,7 @@
         name="expression-input"
         id="expression-input"
         autocomplete="off"
+        inputmode="tel"
         spellcheck="false"
         aria-labelledby="input-label"
       />
