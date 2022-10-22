@@ -2,7 +2,7 @@ import toDecimal from "../helpers/toDecimal";
 
 export default function evaluate(expression) {
   if (!expression.match(/%/gi)) {
-    return Function("return " + expression)();
+    return Function("return " + expression)().toFixed(1);
   }
 
   // I hate regular expressions :)
